@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> HTML y JavaScript Diagnostico</title>
-    <style>
+body{
         /* Pregunta: ¿Qué propiedad CSS se usa para cambiar el color de fondo de un elemento? */
-        body {
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-        }
+        
+background-color: #f4f4f4;
+font-family: Arial, sans-serif;
+}
 
         /* Pregunta: ¿Cómo se centra un div dentro de su contenedor padre horizontalmente? */
-        #container {
-            width: 50%;
-            margin: 0 auto;
+#container {
+ width: 50%;
+ margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             border: 1px solid #ccc;
@@ -31,6 +25,6 @@
             border-radius: 5px;
             text-decoration: none;
             cursor: pointer;
-        }
-    </style>
-</head>
+
+}
+   
