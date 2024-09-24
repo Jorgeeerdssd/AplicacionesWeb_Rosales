@@ -132,3 +132,12 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+a{
+    background-color: #b67d21;
+    color: #c73f3f;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+}
+}
