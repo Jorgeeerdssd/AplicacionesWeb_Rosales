@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclados</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function cargarArchivo() {
+            fetch('vista-producto.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('contenido').innerHTML = data;
+                });
+        }
+    </script>
+    <style>
+
+        .teclados-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .teclado {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 250px;
+        }
+
+        .slider {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .slider img {
+            width: 100%;
+        }
+
+        .container {
+            position: relative;
+            max-width: 8000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <ul class="slider">
+        <li id="slide1">
+            <img src="assets/imagenes/teclado1.jpeg" alt="fondo numero 1" width="1000" height="1000">
+        </li>
+        <li id="slide2">
+            <img src="assets/imagenes/teclado2.jpeg" alt="fondo numero 2" width="800" height="800">
+        </li>
+        <li id="slide3">
+            <img src="assets/imagenes/teclado3.jpeg" alt="fondo numero 3" width="800" height="800">
+        </li>
+        </ul>
+    </div>
+
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slider li');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        const slideWidth = slides[0].clientWidth;
+        const intervalTime = 3000; 
+        let slideInterval;
+
+        function autoSlide() {
+            currentSlide++;
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            moveSlider();
+        }
+
+        function moveSlider() {
+            slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            slider.style.transition = 'transform 0.5s ease';
+        }
+
+        slideInterval = setInterval(autoSlide, intervalTime);
+
+
+        const menuLinks = document.querySelectorAll('.menu a');
+        menuLinks.forEach((link, index) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentSlide = index;
+                moveSlider();
+                clearInterval(slideInterval); 
+                slideInterval = setInterval(autoSlide, intervalTime); 
+            });
+        });
+    </script>
+
+    <nav>
+        <ul>
+            <li><a href="#Inicio">Inicio</a></li>
+            <li><a href="#Catalogo">Catálogo</a></li>
+            <li><a href="#Contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+
+    <section id="inicio">
+        <h1>Bienvenidos </h1>
+        <p>Esta página muestra distintos teclado mecanicos.</p>
+    </section>
+
+
+    <section id="Catalogo">
+        <h2>Catálogo de Teclados</h2>
+
+        
+        <div class="teclados-container">
+            <div class="teclado">
+                <h3>Teaclado 1</h3>
+                <p>Precio: $350.00</p>
+                <img src="assets/imagenes/teclado5.jpeg" alt="teclado1" width="200" height="150">
+                <a href="producto1.html">comprar</a>
+            </div>
+
+            <div class="teclado">
+                <h3>Teaclado 2</h3>
+                <p>Precio: $409.00</p>
+                <img src="assets/imagenes/teclado6.jpeg" alt="teclado2" width="200" height="150">
+                <a href="producto2.html">comprar</a>
+            </div>
+
+
+            <div class="teclado">
+                <h3>Teclado 3</h3>
+                <p>Precio: $500.00</p>
+                <img src="assets/imagenes/teclado4.jpeg" alt="teclado3" width="200" height="150">
+                <a href="producto3.html">comprar</a>
+            </div>
+
+
+            <div class="teclado">
+                <h3>Teclado 4</h3>
+                <p>Precio: $230.50</p>
+                <img src="assets/imagenes/teclado1.jpeg" alt="teclado4" width="200" height="150">
+                <a href="producto4.html">comprar</a>
+            </div>
+
+
+            <div class="teclado">
+                <h3>Teclado 5</h3>
+                <p>Precio: $750.00</p>
+                <img src="assets/imagenes/teclado2.jpeg" alt="Teclado 5" width="200" height="150">
+                <a href="producto5.html">comprar</a>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        const comprarButtons = document.querySelectorAll('.comprar-btn');
+
+        comprarButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                alert("Has añadido este juego a tu carrito");
+            });
+        });
+    </script>
+
+
+    <section id="Contacto">
+        <h2>Contacto</h2>
+        <form action="#" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Jorge Rosales" required><br><br>
+            
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" placeholder="Correo Personal" required><br><br>
+
+            <label for="comentarios">Comentarios:</label><br>
+            <textarea id="comentarios" name="comentarios" rows="4" placeholder="Algun comentario?"></textarea><br><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <marquee behavior="scroll" direction="left" scrollamount="5">Jorge Oswaldo Rosales Moncisvais 3ºA</marquee>
+</body>
+</html>
